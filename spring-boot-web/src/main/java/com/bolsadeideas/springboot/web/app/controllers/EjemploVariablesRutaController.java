@@ -16,13 +16,17 @@ public class EjemploVariablesRutaController {
 		return "variables/index";
 	}
 	
+	//@PathVariable> tambien permite enviar parametros variables en la url
+	//http://localhost:8080/variables/string/cualquiervalor
 	@GetMapping("/string/{texto}")
+	// public String variables(@PathVariable(name="texto") String texto, Model model) {
     public String variables(@PathVariable String texto, Model model) {
 		model.addAttribute("titulo", "Recibir parámetros de la ruta (@PathVariable)");
 		model.addAttribute("resultado", "El texto enviado en la ruta es: " + texto);
 		return "variables/ver";
 	}
 
+	//pasar mas de una variable en la url
 	@GetMapping("/string/{texto}/{numero}")
     public String variables(@PathVariable String texto, @PathVariable Integer numero, Model model) {
 		model.addAttribute("titulo", "Recibir parámetros de la ruta (@PathVariable)");

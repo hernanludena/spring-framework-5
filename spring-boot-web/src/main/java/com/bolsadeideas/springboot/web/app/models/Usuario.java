@@ -1,5 +1,6 @@
 package com.bolsadeideas.springboot.web.app.models;
 
+//Clase POJO, la idea es que este desacoplada de frameworks
 public class Usuario {
 
 	private String nombre;
