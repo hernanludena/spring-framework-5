@@ -8,7 +8,7 @@ import org.springframework.web.context.annotation.RequestScope;
 @RequestScope
 public class Cliente {
 
-	@Value("${cliente.nombre}")
+	@Value("${cliente.nombre}")//inyectar de archivo de recursos
 	private String nombre;
 
 	@Value("${cliente.apellido}")

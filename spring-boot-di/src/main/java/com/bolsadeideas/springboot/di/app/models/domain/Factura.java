@@ -23,7 +23,7 @@ public class Factura implements Serializable{
 	@Autowired
 	private Cliente cliente;
 	
-	@Autowired
+	@Autowired   //inyectamos la unica lista
 	private List<ItemFactura> items;
 	
 	@PostConstruct

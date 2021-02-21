@@ -13,6 +13,7 @@ import com.bolsadeideas.springboot.di.app.models.service.IServicio;
 import com.bolsadeideas.springboot.di.app.models.service.MiServicio;
 import com.bolsadeideas.springboot.di.app.models.service.MiServicioComplejo;
 
+//Esta clase tambien nos permite registrar beans en el contenedor
 @Configuration
 public class AppConfig {
 	
@@ -27,7 +28,7 @@ public class AppConfig {
 		return new MiServicioComplejo();
 	}
 	
-	@Bean("itemsFactura")
+	@Bean("itemsFactura") //registramos objeto itemsFactura
 	public List<ItemFactura> registrarItems(){
 		Producto producto1 = new Producto("Camara Sony", 100);
 		Producto producto2 = new Producto("Bicicleta Bianchi aro 26", 200);
@@ -35,7 +36,7 @@ public class AppConfig {
 		ItemFactura linea1 = new ItemFactura(producto1, 2);
 		ItemFactura linea2 = new ItemFactura(producto2, 4);
 		
-		return Arrays.asList(linea1, linea2);
+		return Arrays.asList(linea1, linea2); //convertir a lista
 	}
 
 	@Bean("itemsFacturaOficina")
