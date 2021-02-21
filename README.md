@@ -30,4 +30,5 @@ forward - dentro del mimos httprequest va al mismo handler sin reiniciar nada.
 
 setear JAVA_HOME , java 15
 ./mvnw.cmd package
-java -jar .\target\spring-boot-web-0.0.1-SNAPSHOT.jar
+cd target
+java -jar spring-boot-web-0.0.1-SNAPSHOT.jar
