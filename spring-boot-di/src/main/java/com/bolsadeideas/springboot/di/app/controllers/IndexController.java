@@ -17,7 +17,7 @@ public class IndexController {
 	//Con inyeccion de dependencias
 	//para desacoplar los objetos de logica de negocio, se usa interfaces
 	@Autowired  //busca un objeto en el contenedor de spring y lo crea
-	@Qualifier("miServicioComplejo")//inyectarf a traves del nombre del componente especifico	
+	@Qualifier("miServicioComplejo")//inyectar a traves del nombre del componente especifico	
 	private IServicio servicio;
 
 	@GetMapping({"/", "", "/index"})

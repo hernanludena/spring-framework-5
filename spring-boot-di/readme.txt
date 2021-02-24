@@ -23,7 +23,7 @@ El contenedor gestiona las instancias y las dependencias
 
 Hibernate - Entity Manager
 
-@Autowired - inyecta un objeto que este anotada en el contenedor, con cualquier anotacion estereotipo @Component, @Controller, @Repository, @Service, etc
+@Autowired - inyecta un objeto que este anotada en el contenedor, con cualquier anotacion estereotipo @Component, @Controller, @Repository, @Service, @Bean etc
 
 Cualquier bean anotado con @Component bajo el package base seran instanciados y manejados por el contenedor de spring (auto scanning)
 

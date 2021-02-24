@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
 @Component
-@RequestScope
+@RequestScope  //Por defecto es singleton, pero se cambia a Request
 public class Cliente {
 
 	@Value("${cliente.nombre}")//inyectar de archivo de recursos
@@ -31,3 +31,8 @@ public class Cliente {
 	}
 
 }
+
+//Singleton
+//RequestScope
+//SessionScope: carro de compras, sesion http. EL objeto dura lo que dura una sesion, cuando se cierra el navegador. Usa sesiones http
+//AplicationScope: por parecido al singleton, se guarda en el contexto servletContext y no el aplicationContext
