@@ -11,13 +11,14 @@ import com.bolsadeideas.springboot.form.app.models.domain.Usuario;
 @Controller
 public class FormController {
 	
-	//Metodos handler
+	//Metodos handler para pasar datos a la vista y mostrar el formulario
 	@GetMapping("/form")
 	public String form(Model model) {
 		model.addAttribute("titulo", "Formulario usuarios");
 		return "form";
 	}
 	
+	//Metodos handler para procesar datos, recibir datos del formulario
 	@PostMapping("/form")
 	public String procesar(Model model, 
 			@RequestParam(name="username") String username,
