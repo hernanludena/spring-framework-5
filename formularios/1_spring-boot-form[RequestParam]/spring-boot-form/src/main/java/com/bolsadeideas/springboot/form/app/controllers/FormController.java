@@ -37,4 +37,21 @@ public class FormController {
 		return "resultado";
 	}
 
+	/**
+	 * Las parametros se van a mapear automaticamente el objeto Usuario
+	 * solo por tener los mismos nombres en la vista (set y get)
+	 * queda mucho mas limpio y automatizado
+	 * 
+	 * @PostMapping("/form")
+	public String procesar(Usuario usuario, Model model) {
+		
+		model.addAttribute("titulo", "Resultado form");
+		model.addAttribute("usuario", usuario);
+		
+		return "resultado";
+	}
+	 * 
+	 * 
+	 */
+	
 }
