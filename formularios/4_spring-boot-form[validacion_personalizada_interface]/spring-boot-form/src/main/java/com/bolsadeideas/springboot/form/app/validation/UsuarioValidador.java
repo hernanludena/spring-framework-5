@@ -9,8 +9,10 @@ import com.bolsadeideas.springboot.form.app.models.domain.Usuario;
 
 @Component
 public class UsuarioValidador implements Validator {
+	//implementamos de Validator de spring
 
 	@Override
+	//indicamos la clase que se va validar
 	public boolean supports(Class<?> clazz) {
 		return Usuario.class.isAssignableFrom(clazz);
 	}
