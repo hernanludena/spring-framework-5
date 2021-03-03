@@ -19,5 +19,7 @@ public @interface IdentificadorRegex {
 	Class<?>[] groups() default { };
 
 	Class<? extends Payload>[] payload() default { };
+	
+	//configuracciones por defecto
 
 }

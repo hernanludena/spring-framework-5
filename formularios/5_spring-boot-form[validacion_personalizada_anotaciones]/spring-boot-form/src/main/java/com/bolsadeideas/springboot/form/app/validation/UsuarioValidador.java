@@ -8,7 +8,7 @@ import org.springframework.validation.Validator;
 import com.bolsadeideas.springboot.form.app.models.domain.Usuario;
 
 @Component
-public class UsuarioValidador implements Validator {
+public class UsuarioValidador implements Validator {//validator de spring
 
 	@Override
 	public boolean supports(Class<?> clazz) {

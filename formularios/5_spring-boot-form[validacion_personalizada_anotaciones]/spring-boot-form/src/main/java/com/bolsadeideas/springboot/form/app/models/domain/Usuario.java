@@ -12,7 +12,7 @@ import com.bolsadeideas.springboot.form.app.validation.Requerido;
 public class Usuario {
 	
 	//@Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
-	@IdentificadorRegex
+	@IdentificadorRegex  //anotacion personalizada de bean de java, y no del framework spring
 	private String identificador;
 	
 	//@NotEmpty(message = "el nombre no puede ser vacio")
