@@ -23,7 +23,7 @@ public class FormController {
 	@Autowired
 	private UsuarioValidador validador;
 	
-	@InitBinder
+	@InitBinder //-->poblar y validar datos del formulario a travez del binder de spring
 	public void initBinder(WebDataBinder binder) {
 		binder.addValidators(validador);
 	}
@@ -42,7 +42,7 @@ public class FormController {
 	@PostMapping("/form")
 	public String procesar(@Valid Usuario usuario, BindingResult result, Model model, SessionStatus status) {
 		
-		// validador.validate(usuario, result);
+		// validador.validate(usuario, result);  -->reemplaza @Valid
 		
 		model.addAttribute("titulo", "Resultado form");
 		
