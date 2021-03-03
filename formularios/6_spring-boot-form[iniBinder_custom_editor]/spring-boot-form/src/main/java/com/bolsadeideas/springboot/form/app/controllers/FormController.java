@@ -21,6 +21,8 @@ import com.bolsadeideas.springboot.form.app.editors.NombreMayusculaEditor;
 import com.bolsadeideas.springboot.form.app.models.domain.Usuario;
 import com.bolsadeideas.springboot.form.app.validation.UsuarioValidador;
 
+//http://localhost:8080/form/
+
 @Controller
 @SessionAttributes("usuario")
 public class FormController {
