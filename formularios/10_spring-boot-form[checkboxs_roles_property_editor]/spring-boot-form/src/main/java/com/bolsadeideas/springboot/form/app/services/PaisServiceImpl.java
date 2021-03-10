@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bolsadeideas.springboot.form.app.models.domain.Pais;
 
-@Service
+@Service //igual a Component
 public class PaisServiceImpl implements PaisService {
 
 	private List<Pais> lista;

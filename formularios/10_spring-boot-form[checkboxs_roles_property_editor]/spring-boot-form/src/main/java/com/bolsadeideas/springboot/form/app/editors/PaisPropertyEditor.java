@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.bolsadeideas.springboot.form.app.services.PaisService;
 
-@Component
+@Component //tambien puede ser service
 public class PaisPropertyEditor extends PropertyEditorSupport {
 
 	@Autowired
@@ -18,7 +18,7 @@ public class PaisPropertyEditor extends PropertyEditorSupport {
 
 		try {
 			Integer id = Integer.parseInt(idString);
-			this.setValue(service.obtenerPorId(id));
+			this.setValue(service.obtenerPorId(id)); //convertimos de id a objeto pais
 		} catch (NumberFormatException e) {
 			setValue(null);
 		}
