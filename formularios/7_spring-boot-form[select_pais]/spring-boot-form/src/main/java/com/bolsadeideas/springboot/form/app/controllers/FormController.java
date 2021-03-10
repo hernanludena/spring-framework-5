@@ -45,7 +45,7 @@ public class FormController {
 		binder.registerCustomEditor(String.class, "apellido", new NombreMayusculaEditor());
 	}
 
-	@ModelAttribute("listaPaises")
+	@ModelAttribute("listaPaises")//se pasa a la vista
 	public List<Pais> listaPaises() {
 		return Arrays.asList(
 				new Pais(1, "ES", "España"), 
@@ -57,7 +57,7 @@ public class FormController {
 				new Pais(7, "VE", "Venezuela"));
 	}
 
-	@ModelAttribute("paises")
+	@ModelAttribute("paises") //se pasa a la vista
 	public List<String> paises() {
 		return Arrays.asList("España", "México", "Chile", "Argentina", "Perú", "Colombia", "Venezuela");
 	}
