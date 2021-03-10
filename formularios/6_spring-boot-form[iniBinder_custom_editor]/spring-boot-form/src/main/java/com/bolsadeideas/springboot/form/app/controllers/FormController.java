@@ -34,9 +34,9 @@ public class FormController {
 	public void initBinder(WebDataBinder binder) {
 		binder.addValidators(validador);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		dateFormat.setLenient(false);
+		dateFormat.setLenient(false); //omitir ambiguedad
 		binder.registerCustomEditor(Date.class, "fechaNacimiento", new CustomDateEditor(dateFormat, true));
-		
+		//customizar editores o filtros
 		binder.registerCustomEditor(String.class, "nombre", new NombreMayusculaEditor());
 		binder.registerCustomEditor(String.class, "apellido", new NombreMayusculaEditor());
 	}
