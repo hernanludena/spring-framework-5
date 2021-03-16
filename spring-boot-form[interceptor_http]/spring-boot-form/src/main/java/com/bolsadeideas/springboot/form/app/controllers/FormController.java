@@ -119,7 +119,7 @@ public class FormController {
 		return paises;
 	}
 
-	@GetMapping("/form")
+	@GetMapping("/form") //mostrar formulario
 	public String form(Model model) {
 		Usuario usuario = new Usuario();
 		usuario.setNombre("John");
@@ -135,7 +135,7 @@ public class FormController {
 		return "form";
 	}
 
-	@PostMapping("/form")
+	@PostMapping("/form") //procesar formulario
 	public String procesar(@Valid Usuario usuario, BindingResult result, Model model) {
 
 		// validador.validate(usuario, result);

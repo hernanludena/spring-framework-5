@@ -21,6 +21,7 @@ public class TiempoTranscurridoInterceptor implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		
+		//si es POST se omite interceptor, solo aplica a los GET
 		if(request.getMethod().equalsIgnoreCase("post")) {
 			return true;
 		}
@@ -32,16 +33,19 @@ public class TiempoTranscurridoInterceptor implements HandlerInterceptor{
 
 		logger.info("TiempoTranscurridoInterceptor: preHandle() entrando ...");
 		logger.info("Interceptando: " + handler);
-		long tiempoInicio = System.currentTimeMillis();
+		long tiempoInicio = System.currentTimeMillis(); //tiempo actual en milisegundos
 		request.setAttribute("tiempoInicio", tiempoInicio);
 		
+		//Emular una demora/delay con Thread, simular una carga en el RQ
 		Random random = new Random();
-		Integer demora = random.nextInt(100);
+		Integer demora = random.nextInt(100); //tiempo aleatorio entre 0 y 99 milisegundos
 		Thread.sleep(demora);
 		
-		return true;
+		//response.sendRedirect(request.getContextPath()).concat("/login"); return false; //Podemos redireccionar 
+		return true; //para que continue con el RQ
 	}
 
+	//luego de ejecutar el metodo de controlador ejecuta el postHandler
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
@@ -51,11 +55,12 @@ public class TiempoTranscurridoInterceptor implements HandlerInterceptor{
 		}
 		
 		long tiempoFin = System.currentTimeMillis();
-		long tiempoInicio = (Long) request.getAttribute("tiempoInicio");
+		long tiempoInicio = (Long) request.getAttribute("tiempoInicio"); //Covert de Object to long
 		long tiempoTranscurrido = tiempoFin - tiempoInicio;
 		
-		if(handler instanceof HandlerMethod && modelAndView != null) {
-			modelAndView.addObject("tiempoTranscurrido", tiempoTranscurrido);
+		//se controla para que las rutas de los recursos de estaticos, imagenes, estilos css, resources no se intercepten
+		if(handler instanceof HandlerMethod && modelAndView != null) { //HandlerMethod del controlador (validacion mas estricta)
+			modelAndView.addObject("tiempoTranscurrido", tiempoTranscurrido); //pasamos a la vista para poder inprimirlo en nuestra plantilla
 		}
 		logger.info("Tiempo Transcurrido: " + tiempoTranscurrido + " milisegundos");
 		logger.info("TiempoTranscurridoInterceptor: postHandle() saliendo ...");
