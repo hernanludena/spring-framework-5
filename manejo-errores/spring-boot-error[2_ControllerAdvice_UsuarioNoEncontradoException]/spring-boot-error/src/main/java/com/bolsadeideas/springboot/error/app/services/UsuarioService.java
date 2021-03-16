@@ -9,6 +9,8 @@ public interface UsuarioService {
 	
 	public List<Usuario> listar();
 	public Usuario obtenerPorId(Integer id);
+	
+	//Metodo usando el API Optional de java 8
 	public Optional<Usuario> obtenerPorIdOptional(Integer id);
 
 }

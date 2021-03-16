@@ -13,9 +13,11 @@ import com.bolsadeideas.springboot.error.app.services.UsuarioService;
 @Controller
 public class AppController {
 	
+	//Inyectamos Servicio
 	@Autowired
 	private UsuarioService usuarioService;
 
+	//Generamos excepciones
 	@SuppressWarnings("unused")
 	@GetMapping("/index")
 	public String index() {
@@ -28,10 +30,11 @@ public class AppController {
 	public String ver(@PathVariable Integer id, Model model) {
 		//Usuario usuario  = usuarioService.obtenerPorId(id);
 		
-		/*if(usuario==null) {
+		/*if(usuario==null) { //Podemos lanzar exception
 			throw new UsuarioNoEncontradoException(id.toString());
 		}*/
 		
+		//Usando Optional de java 8, usando funcion de lamda
 		Usuario usuario  = usuarioService.obtenerPorIdOptional(id).orElseThrow(() -> new UsuarioNoEncontradoException(id.toString()));
 		
 		model.addAttribute("usuario", usuario);
@@ -39,3 +42,6 @@ public class AppController {
 		return "ver";
 	}
 }
+
+//http://localhost:8080/ver/1
+//http://localhost:8080/ver/67

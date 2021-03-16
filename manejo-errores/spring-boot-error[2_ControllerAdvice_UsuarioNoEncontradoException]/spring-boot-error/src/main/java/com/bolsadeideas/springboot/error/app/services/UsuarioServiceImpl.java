@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.bolsadeideas.springboot.error.app.models.domain.Usuario;
 
+
+//Componente del tipo service
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 
@@ -42,10 +44,11 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return resultado;
 	}
 
+	//Metodo usando el API Optional de java 8, usando funciones lambda, es un IF.
 	@Override
 	public Optional<Usuario> obtenerPorIdOptional(Integer id) {
 		Usuario usuario = this.obtenerPorId(id);
-		return Optional.ofNullable(usuario);
+		return Optional.ofNullable(usuario); //retorna un Opcional nulo o con usuario
 	}
 
 }
