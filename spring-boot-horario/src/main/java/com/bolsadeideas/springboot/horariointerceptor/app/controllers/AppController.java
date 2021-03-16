@@ -14,6 +14,7 @@ public class AppController {
 	@Value("${config.horario.cierre}")
 	private Integer cierre;
 	
+	//  http://localhost:8080/
 	@GetMapping({"/", "/index"})
 	public String index(Model model) {
 		model.addAttribute("titulo", "Bienvenido al horario de atención a clientes");
