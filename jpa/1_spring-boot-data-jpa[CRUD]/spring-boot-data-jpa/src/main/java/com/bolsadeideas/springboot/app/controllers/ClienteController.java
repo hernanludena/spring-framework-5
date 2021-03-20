@@ -30,6 +30,7 @@ public class ClienteController {
 		model.addAttribute("titulo", "Listado de clientes");
 		model.addAttribute("clientes", clienteDao.findAll());
 		return "listar";
+		//http://localhost:8080/listar
 	}
 	
 	@RequestMapping(value = "/form")

@@ -17,6 +17,7 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+//JPA va buscar un archivo con nombre import.sql en los archivos de recursos.
 @Entity
 @Table(name = "clientes")
 public class Cliente implements Serializable {
