@@ -10,14 +10,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.bolsadeideas.springboot.app.models.entity.Cliente;
 
+//Internamente se marca como Component
 @Repository
 public class ClienteDaoImpl implements IClienteDao {
 
 	@PersistenceContext
-	private EntityManager em;
+	private EntityManager em;  
+	//maneja ciclo de vida de entidades(todas las operaciones de BD)
 
 	@SuppressWarnings("unchecked")
-	@Transactional(readOnly = true)
+	@Transactional(readOnly = true)  //solo es consulta
 	@Override
 	public List<Cliente> findAll() {
 		// TODO Auto-generated method stub

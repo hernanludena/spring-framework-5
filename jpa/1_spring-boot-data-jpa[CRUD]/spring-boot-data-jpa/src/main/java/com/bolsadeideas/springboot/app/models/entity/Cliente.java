@@ -22,7 +22,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Cliente implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //autoincrementable
 	private Long id;
 
 	@NotEmpty
@@ -36,8 +36,8 @@ public class Cliente implements Serializable {
 	private String email;
 
 	@NotNull
-	@Column(name = "create_at")
-	@Temporal(TemporalType.DATE)
+	@Column(name = "create_at") //nombre en bd
+	@Temporal(TemporalType.DATE) //TIMESTAMP es hora y fecha
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createAt;
 

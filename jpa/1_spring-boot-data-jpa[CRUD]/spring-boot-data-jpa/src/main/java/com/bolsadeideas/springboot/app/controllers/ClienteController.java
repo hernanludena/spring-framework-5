@@ -21,7 +21,8 @@ import com.bolsadeideas.springboot.app.models.entity.Cliente;
 @SessionAttributes("cliente")
 public class ClienteController {
 
-	@Autowired
+	//@Qualifier, se uso si varias clases implementaran de la interfaz
+	@Autowired //inyectamos con la interfaz
 	private IClienteDao clienteDao;
 
 	@RequestMapping(value = "/listar", method = RequestMethod.GET)
