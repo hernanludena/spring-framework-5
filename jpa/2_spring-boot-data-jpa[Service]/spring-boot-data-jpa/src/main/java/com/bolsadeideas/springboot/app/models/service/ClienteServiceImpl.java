@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bolsadeideas.springboot.app.models.dao.IClienteDao;
 import com.bolsadeideas.springboot.app.models.entity.Cliente;
 
+
+//Es una fachada
 @Service
 public class ClienteServiceImpl implements IClienteService {
 
