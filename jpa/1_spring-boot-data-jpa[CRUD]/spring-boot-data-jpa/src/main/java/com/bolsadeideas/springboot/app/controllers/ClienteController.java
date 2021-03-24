@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +19,7 @@ import com.bolsadeideas.springboot.app.models.dao.IClienteDao;
 import com.bolsadeideas.springboot.app.models.entity.Cliente;
 
 @Controller
-@SessionAttributes("cliente")
+@SessionAttributes("cliente")  //se guarda el cliente en atributo de sesion
 public class ClienteController {
 
 	//@Qualifier, se uso si varias clases implementaran de la interfaz
@@ -57,9 +58,11 @@ public class ClienteController {
 		return "form";
 	}
 	
+	//@Valid, anotamos para realizar validaciones en el objeto
+	//metodo que procesa el formulario
 	@RequestMapping(value = "/form", method = RequestMethod.POST)
-	public String guardar(@Valid Cliente cliente, BindingResult result, Model model, SessionStatus status) {
-		if(result.hasErrors()) {
+	public String guardar(@Valid @ModelAttribute("cliente") Cliente cliente, BindingResult result, Model model, SessionStatus status) {
+		if(result.hasErrors()) {//si tiene errores regresamos al form
 			model.addAttribute("titulo", "Formulario de Cliente");
 			return "form";
 		}

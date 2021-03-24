@@ -27,6 +27,7 @@ public class Cliente implements Serializable {
 	private Long id;
 
 	@NotEmpty
+	//@Size(min, max)
 	private String nombre;
 	
 	@NotEmpty
@@ -41,6 +42,8 @@ public class Cliente implements Serializable {
 	@Temporal(TemporalType.DATE) //TIMESTAMP es hora y fecha
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createAt;
+	
+	//messages.properties, se crea en base a los atributos de esta clase
 
 	public Long getId() {
 		return id;
