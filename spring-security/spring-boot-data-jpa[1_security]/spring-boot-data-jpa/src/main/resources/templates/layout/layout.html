@@ -27,6 +27,7 @@
 					<li sec:authorize="!isAuthenticated()"><a
 						class="btn btn-outline-primary" th:href="@{/login}">Sign In</a></li>
 
+<!-- 					sec> tag de spring security integration con spring y thymelead -->
 					<li sec:authorize="isAuthenticated()" class="dropdown show">
 						<a class="btn btn-outline-primary dropdown-toggle" href="#"
 							role="button" id="dropdownMenuLink" data-toggle="dropdown"
