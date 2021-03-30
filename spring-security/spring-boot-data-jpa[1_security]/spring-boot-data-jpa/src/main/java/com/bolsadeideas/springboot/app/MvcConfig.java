@@ -28,8 +28,9 @@ public class MvcConfig implements WebMvcConfigurer {
 		
 	}*/
 	
+	//Controlador estatico/parametrizable - para error customizable 403
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/error_403").setViewName("error_403");
+		registry.addViewController("/error_403").setViewName("error_403"); //indicamos vista html a cargar
 	}
 
 	
